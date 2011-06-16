@@ -448,9 +448,9 @@ CGI::Session::Auth - Authenticated sessions for CGI scripts
 =head1 ABSTRACT
 
 CGI::Session::Auth is a Perl class that provides the necessary
-functions for authentication in CGI scripts. It uses CGI::Session
-for session management and supports several backends for
-user and group data storage.
+functions for authentication in CGI scripts. It uses CGI::Session for
+session management and supports several backends for user and group
+data storage.
 
 
 =head1 SYNOPSIS
@@ -480,27 +480,29 @@ user and group data storage.
 
 =head1 DESCRIPTION
 
-CGI::Session::Auth offers an alternative to HTTP
-authentication. Its goal is to integrate the authentication
-process into the web application as seamless as possible while keeping
-the programming interface simple.
+CGI::Session::Auth offers an alternative to HTTP authentication. Its
+goal is to integrate the authentication process into the web
+application as seamless as possible while keeping the programming
+interface simple.
 
-Users can authenticate themselves by entering their user
-name and password into a login form. This is the most common way
-of authenticating a web site visitor.
+Users can authenticate themselves by entering their user name and
+password into a login form. This is the most common way of
+authenticating a web site visitor.
 
-Alternatively, a user can automatically be authenticated by his IP address.
-This is useful when authorized users can't be bothered to log in manually
-but can be identified by a range of fixed IP addresses.
+Alternatively, a user can automatically be authenticated by his IP
+address.  This is useful when authorized users can't be bothered to
+log in manually but can be identified by a range of fixed IP
+addresses.
 
 CGI::Session::Auth manages a profile for every user account,
-containing his user name, his password and his user id. The user profile may
-contain additional fields for arbitrary data.
+containing his user name, his password and his user id. The user
+profile may contain additional fields for arbitrary data.
 
-B<IMPORTANT:> The class CGI::Session::Auth itself is only an abstract base class with
-no real storage backend (only the user 'guest' with password 'guest'
-may log in). You have to derive a child class that implements its own _login() method
-where the actual authentication takes place.
+B<IMPORTANT:> The class CGI::Session::Auth itself is only an abstract
+base class with no real storage backend (only the user 'guest' with
+password 'guest' may log in). You have to derive a child class that
+implements its own _login() method where the actual authentication
+takes place.
 
 
 =head1 METHODS
@@ -508,8 +510,8 @@ where the actual authentication takes place.
 
 =head2 new(\%parameters)
 
-This is the class constructor. The hash referenced by C<\%parameters> must contain
-the following key/value pairs:
+This is the class constructor. The hash referenced by C<\%parameters>
+must contain the following key/value pairs:
 
 =over 4
 
@@ -540,48 +542,51 @@ by this parameter.
 
 =item Log
 
-Set to 1 to enable logging. CGI::Session::Auth expects an initialized Log::Log4perl 
-module and gets its logger object calling Log::Log4perl->get_logger('CGI::Session::Auth').
+Set to 1 to enable logging. CGI::Session::Auth expects an initialized
+Log::Log4perl module and gets its logger object calling
+Log::Log4perl->get_logger('CGI::Session::Auth').
 
 =back
 
 
 =head2 authenticate()
 
-This method does the actual authentication. It fetches session information to
-determine the authentication status of the current visitor and further checks
-if form variables from a proceeding login form have been set and eventually
-performs a login attempt.
+This method does the actual authentication. It fetches session
+information to determine the authentication status of the current
+visitor and further checks if form variables from a proceeding login
+form have been set and eventually performs a login attempt.
 
 This login attempt is done by calling the method _login() (see below).
 
-If authentication succeeded neither by session data nor login information, and
-the parameter C<IPAuth> is set to a true value, it tries to authenticate the
-visitor by his IP address.
+If authentication succeeded neither by session data nor login
+information, and the parameter C<IPAuth> is set to a true value, it
+tries to authenticate the visitor by his IP address.
 
 
 =head2 _login()
 
-This virtual method performs the actual login attempt by comparing the login
-form data the visitor sent with some local user database. The _login method of
-the base class CGI::Session::Auth only knows the user 'guest' with password
-'guest'.
+This virtual method performs the actual login attempt by comparing the
+login form data the visitor sent with some local user database. The
+_login method of the base class CGI::Session::Auth only knows the user
+'guest' with password 'guest'.
 
-To access a real user database, you have to use a subclass that modifies the
-_login method appropriately. See the modules in the Auth/ subdirectory.
+To access a real user database, you have to use a subclass that
+modifies the _login method appropriately. See the modules in the Auth/
+subdirectory.
 
 
 =head2 sessionCookie()
 
-For the session to be persistent across page requests, its session ID has to be
-stored in a cookie. This method returns the correct cookie (as generated by CGI::cookie()),
-but it remains the duty of the CGI application to send it.
+For the session to be persistent across page requests, its session ID
+has to be stored in a cookie. This method returns the correct cookie
+(as generated by CGI::cookie()), but it remains the duty of the CGI
+application to send it.
 
 
 =head2 loggedIn()
 
-Returns a boolean value representing the current visitors authentication
-status.
+Returns a boolean value representing the current visitors
+authentication status.
 
 
 =head2 logout()
@@ -601,27 +606,27 @@ Checks if the current user is a member of a certain user group.
 
 =head2 profile($key [, $value])
 
-Returns the user profile field identified by C<$key>. If C<$value> is given,
-it will be stored in the respective profile field first.
+Returns the user profile field identified by C<$key>. If C<$value> is
+given, it will be stored in the respective profile field first.
 
 
 =head2 _encpw($password)
 
-Returns a cryptographic hash version of the password argument. If you want to
-store passwords in encrypted form for security reasons, use this function when
-you store the password and when you compare the stored password with the input
-submitted by the user.
+Returns a cryptographic hash version of the password argument. If you
+want to store passwords in encrypted form for security reasons, use
+this function when you store the password and when you compare the
+stored password with the input submitted by the user.
 
 
 =head1 SUPPORT
 
-For further information regarding this module, please visit the 
-project website at https://launchpad.net/perl-cgi-session-auth.
+For further information regarding this module, please visit the
+project website: https://github.com/geewiz/perl-cgi-session-auth
 
 
 =head1 BUGS
 
-Please report all bugs via the issue tracking on the project website.
+Please report all bugs via the issue tracking on CPAN.
 
 Assistance in the development of this modules is encouraged and
 greatly appreciated.
@@ -635,7 +640,7 @@ L<CGI::Application::Plugin::Session>
 
 =head1 AUTHOR
 
-Jochen Lillich, E<lt>geewiz@cpan.orgE<gt>
+Jochen Lillich, E<lt>jochen@lillich.infoE<gt>
 
 
 =head1 CONTRIBUTORS
@@ -659,7 +664,7 @@ These people have helped in the development of this module:
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2003-2010 by Jochen Lillich
+Copyright (c) 2003-2011 by Jochen Lillich
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -1,6 +1,4 @@
-CGI::Session::Auth
-==================
-$Id: README 26 2006-02-21 12:26:19Z geewiz $
+# CGI::Session::Auth
 
 CGI::Session::Auth is a Perl class that provides the necessary
 functions for authentication in CGI scripts. It uses CGI::Session for
@@ -29,48 +27,50 @@ Assistance in the development of this modules is encouraged and
 greatly appreciated. Please contact me!
 
 
-INSTALLATION
+## INSTALLATION
 
 To install this module type the following:
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+    perl Makefile.PL
+    make
+    make test
+    make install
 
 
-DEPENDENCIES
+## DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  CGI::Session
-  NetAddr::IP
-  Digest::MD5
+* CGI::Session
+* NetAddr::IP
+* Digest::MD5
 
-Subclasses may need additional modules, for example CGI::Session::Auth::DBI obviously requires DBI.
+Subclasses may need additional modules, for example
+CGI::Session::Auth::DBI obviously requires DBI.
 
 
-DOCUMENTATION AND SUPPORT
+## DOCUMENTATION AND SUPPORT
 
 Module documentation is provided as POD.
 
-See the examples/ subdirectory for small usage examples.
+See the "examples" subdirectory for small usage examples.
 
 For further information regarding this module, please visit the 
-project website at https://launchpad.net/perl-cgi-session-auth.
+[project website](https://github.com/geewiz/perl-cgi-session-auth).
 
 
-BUGS
+## BUGS
 
-Please report all bugs via the issue tracking on the project website.
+Please report all problems and bugs via the [issue tracking on
+CPAN](https://rt.cpan.org/Public/Dist/Display.html?Name=CGI-Session-Auth)
 
 Assistance in the development of this modules is encouraged and
 greatly appreciated.
 
 
-COPYRIGHT AND LICENCE
+## COPYRIGHT AND LICENCE
 
-Copyright (c) 2003-2010 Jochen Lillich <geewiz@cpan.org>
+Copyright (c) 2003-2011 Jochen Lillich <jochen@lillich.info>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 
