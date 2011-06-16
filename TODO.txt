@@ -1,0 +1,13 @@
+# TODO
+
+
+## Known Bugs
+
+* no knows bugs
+
+
+## Release preparations
+
+* set $VERSION
+* set version in Makefile.PL
+* check copyright date
